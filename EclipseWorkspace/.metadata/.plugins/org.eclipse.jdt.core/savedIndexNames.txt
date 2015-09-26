@@ -1,0 +1,13 @@
+INDEX VERSION 1.127+N:\dev\tango\YouveBeenTangoed\EclipseWorkspace\.metadata\.plugins\org.eclipse.jdt.core
+2383148611.index
+3883379846.index
+562338885.index
+1438376017.index
+2825453813.index
+2845380325.index
+639009669.index
+1043921091.index
+3669064779.index
+1923111961.index
+3323111726.index
+4083174214.index
