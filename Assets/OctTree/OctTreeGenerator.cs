@@ -5,6 +5,7 @@ namespace DDS.PointCloud {
     public class OctTreeGenerator : MonoBehaviour {
 
         public OctTree m_octTree;
+        public GameObject m_pointsMeshPrefab;
 
         // Use this for initialization
         void Start() {
@@ -19,7 +20,9 @@ namespace DDS.PointCloud {
             for( int i=0;i<len;i++){
                points[i] = Random.onUnitSphere;
             }
-            m_octTree.InsertPoints(points);
+            //m_octTree.InsertPoints(points);
+            GameObject obj = Instantiate<GameObject>( m_pointsMeshPrefab );
+            obj.GetComponent<PointsMesh>().AddPoints( points );
         }
     }
 }

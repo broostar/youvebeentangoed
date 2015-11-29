@@ -14,6 +14,17 @@ namespace DDS.PointCloud {
         public static readonly int MAX_POINTS = 65000;//will this ever change?
         public static readonly int MAX_DEPTH = 2;
 
+        private string[] m_childNames = new string[]{
+            "OctTreeNode (1) ",
+            "OctTreeNode (2) ",
+            "OctTreeNode (3) ",
+            "OctTreeNode (4) ",
+            "OctTreeNode (5) ",
+            "OctTreeNode (6) ",
+            "OctTreeNode (7) ",
+            "OctTreeNode (8) "
+        };
+
         //public OctTreeNode m_nodePrefab;
 
         private int m_depth = 0;
@@ -50,6 +61,7 @@ namespace DDS.PointCloud {
 
         public void Start() {
             m_mesh = GetComponent<MeshFilter>().mesh;//we want the actual mesh, not the shared one
+            m_mesh.MarkDynamic();
             //Debug.Log( "VertexCount: " + m_mesh.vertexCount );
             m_meshRenderer = GetComponent<MeshRenderer>();
             m_pointsCount = 0;
@@ -221,9 +233,10 @@ namespace DDS.PointCloud {
             Vector3 offsetY = new Vector3( 0f, extents.y, 0f );
             //Vector3 offsetZ = new Vector3( 0f, 0f, extents.z );
 
-            //StartCoroutine( clearNode() );
+            StartCoroutine( clearNode() );
 
             OctTreeNode temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[0] + m_depth;
             Bounds tempBounds;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
@@ -233,6 +246,7 @@ namespace DDS.PointCloud {
             m_children[0] = temp;
 
             temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[1] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -240,7 +254,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[1] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[2] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -248,7 +263,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[2] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[3] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -256,7 +272,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[3] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[4] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -264,7 +281,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[4] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[5] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -272,7 +290,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[5] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[6] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();
@@ -280,7 +299,8 @@ namespace DDS.PointCloud {
             temp.Bounds = tempBounds;
             m_children[6] = temp;
 
-            temp = OctTree.InstanciateNode(); 
+            temp = OctTree.InstanciateNode();
+            temp.name = m_childNames[7] + m_depth;
             temp.transform.parent = transform;
             temp.Depth = m_depth + 1;
             tempBounds = new Bounds();

@@ -87,7 +87,8 @@ public class LogCatWindow : EditorWindow {
         m_lastScrollPos = 1f;
         InitProcess();
         m_textAreaStyle = new GUIStyle();
-        m_textAreaStyle.normal.textColor = Color.grey;
+        m_textAreaStyle.normal.background = Texture2D.blackTexture;
+        m_textAreaStyle.normal.textColor = Color.white;
         m_textAreaStyle.richText = true;
         m_textAreaStyle.wordWrap = true;
     }
@@ -113,9 +114,9 @@ public class LogCatWindow : EditorWindow {
 
         GUILayout.BeginArea( m_txtAndScrollArea );
         GUILayout.BeginHorizontal();
-        
+
         if( !IsRunning( m_adbProcess ) ) {
-            GUILayout.Label( "CharSize: " + m_charSize+"; MaxChars: "+m_maxChars, GUILayout.ExpandWidth( true ), GUILayout.ExpandHeight( true ) );
+            GUILayout.Label( "CharSize: " + m_charSize + "; MaxChars: " + m_maxChars, m_textAreaStyle, GUILayout.ExpandWidth( true ), GUILayout.ExpandHeight( true ) );
         } else {
             GUILayout.Label( m_logText.Substring(0, Mathf.Min(m_logText.Length, m_maxChars)), m_textAreaStyle, GUILayout.ExpandWidth( true ), GUILayout.ExpandHeight(true) );
         }

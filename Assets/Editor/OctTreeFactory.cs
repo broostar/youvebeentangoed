@@ -6,8 +6,8 @@ namespace DDS.PointCloud {
         [MenuItem( "Tools/Create OctTree" )]
         public static void CreateOctTree() {
             //We need an OctTree, then recursively create as realtime version?
-            OctTree tree;
-            if( (tree = Selection.activeGameObject.GetComponent<OctTree>()) == null ) {
+            OctTree tree = null;
+            if( Selection.activeGameObject != null && (tree = Selection.activeGameObject.GetComponent<OctTree>()) == null ) {
                 Debug.Log( "Please select OctTree" );
                 return;
             }
